@@ -1,19 +1,34 @@
-async function initDictionaryAttack(correctPassword){
+//Hard coded correct password
+const correctPassword = "ajgkA";
 
+//listener to form submition 
+document.getElementById('cracker-form').addEventListener("submit",async event =>{
+    event.preventDefault();
+    await initAttack(correctPassword);
+})
+
+async function initAttack(correctPassword){
+
+    //getting passwords from the dectionary 
    const passwords = await getDictionaryContent();
 
+    //looping through all passwords in the dictionary to find the correct one then display it in the span
     for(pass of passwords){
         if(pass === correctPassword){
-            const output = document.querySelector(".correct-Password-js");
-            output.textContent = pass;
+            const output = document.querySelector(".correct-password-js");
+            output.textContent =`Password found succesfully: ${pass}`;
             output.style.display = "block";
-            break;
+            return;
         }
-    };
-
-    //incase dictionary attack didn't success we will use brute force
-    initBruteForceAttack(correctPassword);
+    }
     
+    //incase dictionary attack didn't success we will use brute force
+    const password = initBruteForceAttack(correctPassword);
+
+    //displaying the output
+    const output = document.querySelector(".correct-password-js");
+    output.textContent = password;
+    output.style.display = "block";
 }
 
 function initBruteForceAttack(correctPassword) { 

@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passord Cracker</title>
+    <title>Password Cracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Password Cracker</h1>
-    <input type="text" placeholder="Enter Username"><br><br>
-    <button onclick="initDictionaryAttack('aaaba')">Start Dictionary attack</button><br><br>
-    <button>Start Brute Force Attack </button>
+    <div class="container">
+        <h1>Welcome to Password Cracker</h1>
 
-    <!--an element to show the correct password at the end-->
-    <span style="display: none;" class="correct-Password-js">
-        
-    </span>
+        <form id ="cracker-form">
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <br><br>
+            
+            <button type="submit">Start Attack</button>
+        </form>
+        <br><br>
+
+        <!-- Element to show the correct password at the end -->
+        <span class="correct-password-js" style="display: none;"></span>
+    </div>
 
     <script src="index.js"></script>
 </body>
