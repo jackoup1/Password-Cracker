@@ -2,14 +2,17 @@ async function initDictionaryAttack(correctPassword){
 
    const passwords = await getDictionaryContent();
 
-    passwords.forEach((pass)=>{
+    for(pass of passwords){
         if(pass === correctPassword){
             const output = document.querySelector(".correct-Password-js");
             output.textContent = pass;
             output.style.display = "block";
-            return;
+            break;
         }
-    });
+    };
+
+    //incase dictionary attack didn't success we will use brute force
+    
 }
 
 async function getDictionaryContent() {
