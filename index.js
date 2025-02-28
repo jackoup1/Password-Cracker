@@ -1,5 +1,5 @@
 //Hard coded correct password
-const correctPassword = "ajgkA";
+const correctPassword = "aAAFB";
 
 //listener to form submition 
 document.getElementById('cracker-form').addEventListener("submit",async event =>{
@@ -15,9 +15,7 @@ async function initAttack(correctPassword){
     //looping through all passwords in the dictionary to find the correct one then display it in the span
     for(pass of passwords){
         if(pass === correctPassword){
-            const output = document.querySelector(".correct-password-js");
-            output.textContent =`Password found succesfully: ${pass}`;
-            output.style.display = "block";
+            displayPassword(pass);
             return;
         }
     }
@@ -26,9 +24,7 @@ async function initAttack(correctPassword){
     const password = initBruteForceAttack(correctPassword);
 
     //displaying the output
-    const output = document.querySelector(".correct-password-js");
-    output.textContent = password;
-    output.style.display = "block";
+    displayPassword(password);
 }
 
 function initBruteForceAttack(correctPassword) { 
@@ -75,4 +71,10 @@ async function getDictionaryContent() {
     }catch (error) {
         console.error('Error loading file:', error);
     }
+}
+
+function displayPassword(pass){
+    const output = document.querySelector(".correct-password-js");
+    output.textContent =`Password found succesfully: ${pass}`;
+    output.style.display = "block";
 }
