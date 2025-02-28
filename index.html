@@ -8,8 +8,13 @@
 <body>
     <h1>Welcome to Password Cracker</h1>
     <input type="text" placeholder="Enter Username"><br><br>
-    <button>Start Dictionary attack</button><br><br>
+    <button onclick="initDictionaryAttack('soccer')">Start Dictionary attack</button><br><br>
     <button>Start Brute Force Attack </button>
+
+    <!--an element to show the correct password at the end-->
+    <span style="display: none;" class="correct-Password-js">
+        
+    </span>
 
     <script src="DictionaryAttack.js"></script>
     <script src = "BruteForceAttack.js"></script>
